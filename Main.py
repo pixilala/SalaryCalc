@@ -9,9 +9,11 @@ if salaried == True:
 else:
     hoursPerWeek = input('Enter Weekly Hours: ')
     hourlyRate = input('Enter Hourly Rate: ')
-    weeklyPay = float(hoursPerWeek) * 4 
+    payPeriodsPerYear = input('How Many Pay Periods Per Year :')
+    print(hoursPerWeek)
+    weeklyPay = 4.0 * float(hoursPerWeek)  
     print('weekly salary pre tax: '+ str(weeklyPay))
-    Salary = float(weeklyPay) * 13
+    Salary = float(weeklyPay) * float(payPeriodsPerYear)
     print('Yearly salary pre tax: '+ str(Salary))
 #hourlyRate = float(salary) / 52 / float(hoursPerWeek)
 #print(hourlyRate)
