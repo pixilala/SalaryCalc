@@ -32,17 +32,18 @@ else:
                 taxFreeAllowance = taxCodeAllowance
 #
 grossSalaryInt = int(grossSalary)
+print(grossSalaryInt)
 #taxcalculation
-if grossSalaryInt <= 12500 and grossSalaryInt < 125001:
+if grossSalaryInt <= 12500:
                  taxRate = 0.00
                  print('You have not reached your monthly allowance')
-elif grossSalaryInt <= 12501 and grossSalaryInt < 50000:
+elif grossSalaryInt >= 12501 and grossSalaryInt < 50000:
                  taxRate = 0.20
                  print('You are on Basic Rate (20%)')
-elif grossSalaryInt <= 50001 and grossSalaryInt < 150000:
+elif grossSalaryInt >= 50001 and grossSalaryInt < 150000:
                  taxRate = 0.40
                  print('You are on Higher Rate Tax (40%)')
-elif grossSalaryInt <= 150000:
+elif grossSalaryInt >= 150000:
                  taxRate = 0.45
                  print('You are on Additonal Rate Tax (45%)')
 
@@ -54,5 +55,5 @@ else:
     print(deductableAmount)
 
 totalNetSalary = grossSalaryInt - deductableAmount
-print('Your Total Net Salary: '+str(totalNetSalary))
-
+monthlyNetSalary = totalNetSalary / 12
+print('Your Total Net Salary: '+str(float(round(monthlyNetSalary,2))))
