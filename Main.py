@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 
 salaried = input('Are you on a yearly salary?: ')
@@ -54,6 +53,6 @@ else:
     deductableAmount = grossSalaryInt * taxRate
     print(deductableAmount)
 
-totalNetSalary = grossSalaryInt - deductableAmountprint
-('Your Total Net Salary: '+str(totalNetSalary))
+totalNetSalary = grossSalaryInt - deductableAmount
+print('Your Total Net Salary: '+str(totalNetSalary))
 
