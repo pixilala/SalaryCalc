@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-salaried = input('Are you on a yearly salary?: ')
+#salaried = input('Are you on a yearly salary?: ')
+salaried = 'no'
 taxCode = input('What is your current Tax Code: ')
 
 
@@ -8,12 +9,13 @@ if salaried == 'yes':
    # overHourlyRate = input('Enter hourly rate: ')
     grossSalary = input('Enter Salary: ')
     hoursPerWeek = input('Enter Weekly Hours: ')
+    print(grossSalary)
 else:
     hoursPerWeek = input('Enter Weekly Hours: ')
     hourlyRate = input('Enter Hourly Rate: ')
-    weeklyPay = float(hoursPerWeek) * 4
+    weeklyPay =  float(hourlyRate) * float(hoursPerWeek)
     print('weekly gross pre tax: '+ str(weeklyPay))
-    Salary = float(weeklyPay) * 13
+    grossSalary = 13 * float(weeklyPay) 
     print('Yearly gross pre tax: '+ str(grossSalary))
 
 if taxCode == 'BR':
@@ -32,7 +34,7 @@ else:
                 taxFreeAllowance = taxCodeAllowance
 #
 grossSalaryInt = int(grossSalary)
-print(grossSalaryInt)
+
 #taxcalculation
 if grossSalaryInt <= 12500:
                  taxRate = 0.00
