@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
-salaried = input('Are you on a yearly salary?: ')
-taxCode = input('What is your current Tax Code: ')
-#salaried = 'no' # test parameter
-#taxCode = '1185l' # test parameter
+#salaried = input('Are you on a yearly salary?: ')
+#taxCode = input('What is your current Tax Code: ')
+salaried = 'no' # test parameter
+taxCode = '1185l' # test parameter
+hoursPerWeek = 50
+hourlyRate = 8.7
 
 if salaried == 'YES':
    # overHourlyRate = input('Enter hourly rate: ')
@@ -13,10 +15,8 @@ if salaried == 'YES':
     grossSalary = salaryGrossPay
 else:
     #hoursPerWeek = input('Enter Weekly Hours: ')
-    hoursPerWeek = 50 # test parameter 
     #hourlyRate = input('Enter Hourly Rate: ')
-    hourlyRate = 8.7
-    weeklyPay = float(hoursPerWeek) *  float(hourlyRate)
+    weeklyPay = float(hoursPerWeek) *  float(hourlyRate) 
     print('weekly gross pre tax: £'+ str(round(weeklyPay,2))+'0')
     nonSalarygrossPay = 13 * float(weeklyPay)
     print('Yearly gross pre tax: £'+ str(round(nonSalarygrossPay,2))+'0')
@@ -28,7 +28,7 @@ if taxCode == 'BR':
 else:
                  print('You Are using a personal allowance code')
                  taxCodeStr = taxCode[:-1] # the [:-1] removes the last character from the string
-                 print(taxCodeStr)
+                 #print(taxCodeStr)
                  taxCodeAllowance = int(taxCodeStr)
                  print('Your Tax Free Allowance is: £' + str(taxCodeAllowance)+'0')
 
@@ -58,13 +58,13 @@ if taxCodeStr == 'BR':
     print(deductableAmount)
 else:
     deductableAmount = grossSalaryInt * taxRate
-    print(deductableAmount)
+    print('Deductable Amount £'+str(float(round(deductableAmount,2)))+'0')
 
 totalNetSalary = grossSalaryInt - deductableAmount
 monthlyNetSalary = totalNetSalary / 12
 
-#### end salry calculation
+#### end salary calculation
 if salaried == 'YES':
-    print('Your Total Net Salary: '+str(float(round(monthlyNetSalary,2))))
+    print('Your Total Net Salary: £'+str(float(round(monthlyNetSalary,2))))
 else:
-    print('Your Total Net Salary: '+str())
+    print('Your Total Net Salary: £'+str())
