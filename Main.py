@@ -1,22 +1,26 @@
 #!/usr/bin/python3
 
-#salaried = input('Are you on a yearly salary?: ')
-salaried = 'no'
+salaried = input('Are you on a yearly salary?: ')
 taxCode = input('What is your current Tax Code: ')
+#salaried = 'no' # test parameter
+#taxCode = '1185l' # test parameter
 
-
-if salaried == 'yes':
+if salaried == 'YES':
    # overHourlyRate = input('Enter hourly rate: ')
-    grossSalary = input('Enter Salary: ')
+    salaryGrossPay = input('Enter Salary: ')
     hoursPerWeek = input('Enter Weekly Hours: ')
-    print(grossSalary)
+    print(salaryGrossPay)
+    grossSalary = salaryGrossPay
 else:
-    hoursPerWeek = input('Enter Weekly Hours: ')
-    hourlyRate = input('Enter Hourly Rate: ')
-    weeklyPay =  float(hourlyRate) * float(hoursPerWeek)
-    print('weekly gross pre tax: '+ str(weeklyPay))
-    grossSalary = 13 * float(weeklyPay) 
-    print('Yearly gross pre tax: '+ str(grossSalary))
+    #hoursPerWeek = input('Enter Weekly Hours: ')
+    hoursPerWeek = 50 # test parameter 
+    #hourlyRate = input('Enter Hourly Rate: ')
+    hourlyRate = 8.7
+    weeklyPay = float(hoursPerWeek) *  float(hourlyRate)
+    print('weekly gross pre tax: £'+ str(round(weeklyPay,2))+'0')
+    nonSalarygrossPay = 13 * float(weeklyPay)
+    print('Yearly gross pre tax: £'+ str(round(nonSalarygrossPay,2))+'0')
+    grossSalary = nonSalarygrossPay
 
 if taxCode == 'BR':
                  print('You are using an emergency tax code')
@@ -25,8 +29,8 @@ else:
                  print('You Are using a personal allowance code')
                  taxCodeStr = taxCode[:-1] # the [:-1] removes the last character from the string
                  print(taxCodeStr)
-                 taxCodeAllowance = int(taxCodeStr)*10
-                 print('Your Tax Free Allowance is: ' + str(taxCodeAllowance))
+                 taxCodeAllowance = int(taxCodeStr)
+                 print('Your Tax Free Allowance is: £' + str(taxCodeAllowance)+'0')
 
 if taxCodeStr == 'BR':
                 taxFreeAllowance = 0
@@ -58,4 +62,9 @@ else:
 
 totalNetSalary = grossSalaryInt - deductableAmount
 monthlyNetSalary = totalNetSalary / 12
-print('Your Total Net Salary: '+str(float(round(monthlyNetSalary,2))))
+
+#### end salry calculation
+if salaried == 'YES':
+    print('Your Total Net Salary: '+str(float(round(monthlyNetSalary,2))))
+else:
+    print('Your Total Net Salary: '+str())
