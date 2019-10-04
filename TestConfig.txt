@@ -1,0 +1,6 @@
+salaried = 'no' 
+taxCode = '1185l'
+hoursPerWeek = 50
+hourlyRate = 8.7
+studentLaonPlan = A
+salaryConrtibutionPercent = 3
