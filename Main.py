@@ -5,9 +5,9 @@
 #pension = input('What is your current pension Contribution %')
 ################################
 ############TEST PARAMETERS##########
-salaried = 'no' # test parameter
-taxCode = '1185l' # test parameter
-hoursPerWeek = 50
+salaried = 'YES' # test parameter
+taxCode = '1185L' # test parameter
+hoursPerWeek = 37.5
 hourlyRate = 8.7
 pensionPercent = 3
 studentLoanPlan = 'A'
@@ -15,8 +15,10 @@ studentLoanPlan = 'A'
 
 if salaried == 'YES':
    # overHourlyRate = input('Enter hourly rate: ')
-    salaryGrossPay = input('Enter Salary: ')
-    hoursPerWeek = input('Enter Weekly Hours: ')
+    #salaryGrossPay = input('Enter Salary: ')
+    #hoursPerWeek = input('Enter Weekly Hours: ')
+    salaryGrossPay = 19000
+    hoursPerWeek = 37.5
     print(salaryGrossPay)
     grossSalary = salaryGrossPay
 else:
@@ -28,16 +30,40 @@ else:
     print('Yearly gross pre tax: £'+ str(round(nonSalarygrossPay,2))+'0')
     grossSalary = nonSalarygrossPay
 
+####
+#Tax Calculations
+########
+
 if taxCode == 'BR':
-                 print('You are using an emergency tax code')
-                 taxCodeStr = 'BR'
-                 taxFreeAllowance = 0
+    print('You are using an emergency tax code')
+    taxRate = 20
+    print('Tax Rate is '+str(taxRate)+' on all income')
+    taxFreeAllowance = 0
+elif taxCode == 'D0':
+    taxRate = 40
+    print('Tax Rate is '+str(taxRate)+' on all income')
+    taxFreeAllowance = 0
+elif taxCode == 'D1':
+    taxRate = 45
+    print('Tax Rate is '+str(taxRate)+' on all income')
+    taxFreeAllowance = 0
+elif taxCode == 'NT':
+    print('You are using a Tax Free Tax Code')
+    taxRate = 0
 else:
-                 print('You Are using a personal allowance code')
-                 taxCodeStr = taxCode[:-1] # the [:-1] removes the last character from the string
-                 taxCodeAllowance = int(taxCodeStr)
-                 print('Your Tax Free Allowance is: £' + str(taxCodeAllowance)+'0')
-                 taxFreeAllowance = taxCodeAllowance
+    print('You Are using a personal allowance code')
+    taxCodeStr = taxCode[:-1] # the [:-1] removes the last character from the string
+    taxCodeAlpha = str(taxCode[-1:])
+    #print(taxCodeAlpha)
+personalCodes = ['L','l','P','p','Y','y','M','m','N','n','T','t']
+if taxCodeAlpha in personalCodes:
+    print('Personal Code')
+else:
+    print('check code'
+          )
+    taxCodeAllowance = int(taxCodeStr)
+    print('Your Tax Free Allowance is: £' + str(taxCodeAllowance)+'0')
+    taxFreeAllowance = taxCodeAllowance
 
 #######
 #DEDUCTIONS
@@ -85,7 +111,7 @@ else:
 grossWeeklyPay = ((grossSalaryInt / 12)/4)
 if grossWeeklyPay <= 166:
     NIPercent = 0
-elif grossWeellyPay >=166 and grossWeeklyPay <= 962:
+elif grossWeeklyPay >=166 and grossWeeklyPay <= 962:
     NIPercent = 12
 print(NIPercent)
 
@@ -119,4 +145,4 @@ monthlyNetSalary = totalNetSalary / 12
 if salaried == 'YES':
     print('Your Total Net Salary: £'+str(float(round(monthlyNetSalary,2))))
 else:
-    print('Your Total Net Salary: £'+str())
+    print('Your Total Net Salary: £'+str(float(round(totalNetSalary,2))))
