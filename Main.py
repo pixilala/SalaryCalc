@@ -10,6 +10,7 @@ taxCode = '1185l' # test parameter
 hoursPerWeek = 50
 hourlyRate = 8.7
 pensionPercent = 3
+studentLoanPlan = 'A'
 ###################################
 
 if salaried == 'YES':
@@ -43,10 +44,20 @@ else:
 
 penContribAmount = ((int(pensionPercent) / 100) * int(grossSalary))
 penContrib=(round(penContribAmount,2))
-
 print('Current pension contributions are: ' + str(penContrib))
-
 grossSalaryInt = int(grossSalary)
+
+######
+#Student Loan Calc
+######
+
+if studentLoanPlan == 'A':
+    print('A')
+elif studentLoanPlan == 'B':
+    print('B')
+else:
+    print('Sudent Loan')
+
 
 #taxcalculation
 if grossSalaryInt <= 12500:
