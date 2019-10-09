@@ -2,10 +2,15 @@
 
 #salaried = input('Are you on a yearly salary?: ')
 #taxCode = input('What is your current Tax Code: ')
+#pension = input('What is your current pension Contribution %')
+################################
+############TEST PARAMETERS##########
 salaried = 'no' # test parameter
 taxCode = '1185l' # test parameter
 hoursPerWeek = 50
 hourlyRate = 8.7
+pensionPercent = 3
+###################################
 
 if salaried == 'YES':
    # overHourlyRate = input('Enter hourly rate: ')
@@ -25,18 +30,22 @@ else:
 if taxCode == 'BR':
                  print('You are using an emergency tax code')
                  taxCodeStr = 'BR'
+                 taxFreeAllowance = 0
 else:
                  print('You Are using a personal allowance code')
                  taxCodeStr = taxCode[:-1] # the [:-1] removes the last character from the string
-                 #print(taxCodeStr)
                  taxCodeAllowance = int(taxCodeStr)
                  print('Your Tax Free Allowance is: £' + str(taxCodeAllowance)+'0')
+                 taxFreeAllowance = taxCodeAllowance
+###################
+###  DEDUCTIONS ###
+###################
 
-if taxCodeStr == 'BR':
-                taxFreeAllowance = 0
-else:
-                taxFreeAllowance = taxCodeAllowance
-#
+penContribAmount = ((int(pensionPercent) / 100) * int(grossSalary))
+penContrib=(round(penContribAmount,2))
+
+print('Current pension contributions are: ' + str(penContrib))
+
 grossSalaryInt = int(grossSalary)
 
 #taxcalculation
